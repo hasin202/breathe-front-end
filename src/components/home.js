@@ -66,6 +66,16 @@ const Home = () => {
   //   console.log(readings.length);
   // }, [readings, timeInterval]);
 
+  const postRand = () => {
+    let randCO = Math.floor(Math.random() * 3000);
+    let randVOC = Math.floor(Math.random() * 600);
+    const readingsJSON = {
+      co2: randCO,
+      voc: randVOC,
+    };
+    sensorReadingsAPI.postReading(readingsJSON);
+  };
+
   return (
     <div className="flex items-center justify-center w-full">
       <div className="px-6 py-4 flex grow flex-col gap-5 md:max-w-5xl">
